@@ -115,12 +115,13 @@ code {
 }
 
 .mine	 {
-    width: 500px;
-    height: 500px;
+    width: 370px;
+    height: 230px;
 }
 
 img {
-    width: 100%;
+	width: 100%;
+	border:1px solid gray;
 }
 
 
