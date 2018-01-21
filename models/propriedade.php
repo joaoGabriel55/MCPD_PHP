@@ -30,26 +30,23 @@ class PropriedadeModel extends Model {
             if ($img != 0) {
                 // Insert into MySQL
                 $this->query('INSERT INTO
-                            propriedade (nome_propriedade, pais, id_estado_fk, id_cidade_fk, area)
-				            VALUES(:nome_propriedade, :pais, :id_estado_fk, :id_cidade_fk, :area)');
+                            propriedade (nome_propriedade, pais, id_estado_fk, id_cidade_fk, area, id_imagem_fk)
+				            VALUES(:nome_propriedade, :pais, :id_estado_fk, :id_cidade_fk, :area, :id_imagem_fk)');
                 $this->bind(':nome_propriedade', $post['nome_propriedade']);
                 $this->bind(':pais', $post['pais']);
                 $this->bind(':id_estado_fk', $post['estado']);
                 $this->bind(':id_cidade_fk', $post['cidade']);
                 $this->bind(':area', $post['area']);
-                $this->execute();
-
-                $idPropriedade = $this->lastInsertId();
-
-                $this->query('UPDATE propriedade SET id_imagem_fk = :id_imagem_fk WHERE id = :id');
-                $this->bind(':id', $idPropriedade);
                 $this->bind(':id_imagem_fk', $img);
                 $this->execute();
+
+                $this->lastInsertId();
+
             } else {
                 echo 'ERROR';
             }
             // Verify
-            if ($idPropriedade) {
+            if ($this->lastInsertId()) {
                 // Redirect
                 header('Location: ' . ROOT_URL . 'propriedades');
             }
