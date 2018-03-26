@@ -8,7 +8,7 @@
 	],
 	"settings": {
 		"xdebug": {
-			"url": "http://localhost/dashboard/cursoPHP/Mcpd_test/",
+			"url": "http://localhost/dashboard/cursoPHP/MCPD_PHP/",
 		}
 	}
 }

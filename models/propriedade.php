@@ -78,7 +78,7 @@ class PropriedadeModel extends Model {
             $novoNome = md5(microtime()) . '.' . $extensao;
 
             // Concatena a pasta com o nome
-            $destino = $_SERVER['DOCUMENT_ROOT'].'/dashboard/cursoPHP/Mcpd/assets/imgs_propriedades/' . $novoNome;
+            $destino = $_SERVER['DOCUMENT_ROOT'].'/dashboard/cursoPHP/MCPD_PHP/assets/imgs_propriedades/' . $novoNome;
            
             // tenta mover o arquivo para o destino
             if (@move_uploaded_file($imagem, $destino)) {
